@@ -1,0 +1,25 @@
+{
+  "name": "sekret",
+  "version": "0.0.1",
+  "description": "Share sekrets with your team",
+  "main": "index.js",
+  "repository": "https://github.com/acailly/sekret.git",
+  "author": "acailly",
+  "license": "The Unlicense",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "bin": "./index.js",
+  "files": [
+    "commands",
+    "LICENSE",
+    "README.md",
+    "index.js",
+    "sekret.js"
+  ],
+  "dependencies": {
+    "find-root": "^1.0.0",
+    "fs-extra": "^2.1.2",
+    "vorpal": "^1.11.4"
+  }
+}
