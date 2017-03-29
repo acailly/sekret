@@ -1,6 +1,6 @@
 {
   "name": "sekret",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Share sekrets with your team",
   "main": "index.js",
   "repository": "https://github.com/acailly/sekret.git",
