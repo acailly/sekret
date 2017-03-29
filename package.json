@@ -1,6 +1,6 @@
 {
   "name": "sekret",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Share sekrets with your team",
   "main": "index.js",
   "repository": "https://github.com/acailly/sekret.git",
@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node bin.js"
   },
-  "bin": "./index.js",
+  "bin": "./bin.js",
   "files": [
     "LICENSE",
     "README.md",
