@@ -20,17 +20,13 @@ Once you have it, go to your repository folder and initialize `sekret` with the 
 
 ```
 cd myproject/
-sekret
-```
-
-```
-sekret~$ init mypassword
+sekret init mypassword
 ```
 
 Now you can encrypt a file in order to share it with your team:
 
 ```
-sekret~$ encrypt fileContainingConfidentialInfo.txt
+sekret encrypt fileContainingConfidentialInfo.txt
 ```
  
 After that, you can push the file `fileContainingConfidentialInfo.txt.sekret` and the modification of `.gitignore` (**very important!**).
@@ -45,10 +41,7 @@ Now Bob, your fellow friend, can:
 
 ```
 cd myproject/
-sekret
-```
-```
-sekret~$ decrypt fileContainingConfidentialInfo.txt
+sekret decrypt fileContainingConfidentialInfo.txt
 ```
 
 The `fileContainingConfidentialInfo.txt` file is now decrypted! 
