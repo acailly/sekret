@@ -1,18 +1,45 @@
-#!/usr/bin/env node
+const fs = require('fs-extra')
+const {
+  keyfile,
+  generateKey,
+  addToGitIgnore,
+  checkRepositoryIsConfigured,
+  encryptFile,
+  decryptFile
+} = require('./sekret')
 
-const path = require('path')
-const vorpal = require('vorpal')()
-const chalk = vorpal.chalk
+const init = password => {
+  console.log(`🔍 Add .sekret to .gitignore`)
+  addToGitIgnore('.sekret')
 
-const useCommand = name => {
-  vorpal.use(require(path.join(__dirname, 'commands', name)))
+  if (fs.existsSync(keyfile)) {
+    console.log('🍺 Sekret is already configured for this repository! 🍺')
+    return
+  }
+
+  console.log(`🔑 Generate the key`)
+  generateKey(password)
 }
 
-useCommand('init')
-useCommand('encrypt')
-useCommand('decrypt')
+const encrypt = file => {
+  checkRepositoryIsConfigured()
 
-vorpal
-  .delimiter(chalk.magenta('sekret~$'))
+  console.log(`🔍 Add ${file} to .gitignore`)
+  addToGitIgnore(file)
 
-vorpal.show()
+  console.log(`🔒 Encrypt ${file} to ${file}.sekret`)
+  encryptFile(file)
+}
+
+const decrypt = file => {
+  checkRepositoryIsConfigured()
+
+  console.log(`🔮 Decrypt ${file}.sekret to ${file}`)
+  decryptFile(file)
+}
+
+module.exports = {
+  init,
+  encrypt,
+  decrypt
+}

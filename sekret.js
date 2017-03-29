@@ -3,10 +3,10 @@ const findRoot = require('find-root')
 const crypto = require('crypto')
 const path = require('path')
 
-const appDir = path.join(findRoot(__dirname), '/')
-const keyfile = appDir + '.sekret'
+const appDir = findRoot(process.cwd())
+const keyfile = path.join(appDir, '.sekret')
 
-const gitIgnoreFile = appDir + '.gitignore'
+const gitIgnoreFile = path.join(appDir, '.gitignore')
 
 const hash = (data) => {
   const hash = crypto.createHash('sha256')
